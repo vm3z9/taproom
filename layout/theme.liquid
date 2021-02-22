@@ -76,6 +76,7 @@
   </script>
 
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+  {{ 'main.min.css' | asset_url | stylesheet_tag }}
 
   <style>
     {{ header_font | font_face: font_display: 'swap' }}
@@ -162,6 +163,8 @@
       scripts.parentNode.insertBefore(polyfill, scripts);
     }
   </script>
+
+  {{ 'index.min.js' | asset_url | script_tag }}
 
   {{ content_for_header }}
 </head>
