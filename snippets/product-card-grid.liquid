@@ -9,9 +9,8 @@
     {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
-  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
+  <a class="grid-view-item__link grid-view-item__image-container" href="{{ product.url | within: collection }}">
     <span class="visually-hidden">{{ product.title }}</span>
-  </a>
 
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -33,6 +32,7 @@
               data-aspectratio="{{ preview_image.aspect_ratio }}"
               data-sizes="auto"
               data-image>
+        <button type="submit" class="buy-btn-overlay">Buy Now</button>
       </div>
     </div>
   </div>
@@ -45,5 +45,7 @@
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
 
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+
+  </a>
 
 </div>
