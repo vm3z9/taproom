@@ -14,30 +14,48 @@
 
 @media only screen and (min-width: 750px) {
 
-	.grid-view-item__image {
+	.product-card {
+		
+		&:hover {
+			.product-card__image-wrapper {
+				opacity: 1;
 
-		+ .buy-btn-overlay {
-			position: absolute;
-			transform: translate(-50%,-50%);
-			top: 50%;
-			left: 50%;
-			background: black;
-			color: white;
-			display: none;
+				.grid-view-item__image {
+					opacity: 0.8;
 
-			&:hover {
-				display: block;
+					+ .buy-btn-overlay {
+
+						display: block;						
+
+						&:hover {
+
+							+ .buy-btn-overlay {
+								display: block;
+							}
+
+						}
+					}
+
+					
+				}
 			}
 
 		}
 
-		&:hover {
+		.grid-view-item__image {
 
 			+ .buy-btn-overlay {
-				display: block;
+				position: absolute;
+				transform: translate(-50%,-50%);
+				top: 50%;
+				left: 50%;
+				background: black;
+				color: white;
+				display: none;
 			}
 
 		}
+
 	}
 
 } 
