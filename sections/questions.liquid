@@ -1,0 +1,76 @@
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="faq-wrapper">
+
+      {% for block in section.blocks %}
+
+      {% if block.settings.question != blank %}
+        <div class="faq-row">
+            <div class="faq-question">{{ block.settings.question }}</div>
+            <div class="faq-answer">
+              <span>{{ block.settings.answer }}</span>
+            </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+
+
+
+{% schema %}
+{
+  "name": "FAQ",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
