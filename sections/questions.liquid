@@ -1,4 +1,4 @@
-<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="questions">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
@@ -74,3 +74,22 @@
   ]
 }
 {% endschema %}
+
+{% javascript %}
+  
+  document.addEventListener('DOMContentLoaded', (e) => {
+
+    // Detect clicks on faq section and make any clicked row 'active'
+    const wrapper = document.querySelector('.faq-wrapper');
+
+    wrapper.addEventListener("click", function(e) {
+
+      if (e.target.parentElement.classList.contains('faq-row')){
+        e.target.parentElement.classList.toggle('active');
+      }
+      
+    });
+
+  });
+
+{% endjavascript %}
