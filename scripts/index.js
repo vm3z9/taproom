@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', (e) => {
-    
-  const featuredBuyButtons = document.querySelectorAll(".buy-btn-overlay");
 
-  featuredBuyButtons.forEach(button => {
-
-  	button.addEventListener("click", (e) => {
-
-  		e.preventDefault();
-
-  	});
-
-  });
-
-
+	document.addEventListener("click", handleBuyButton);	
 
 });
+
+const handleBuyButton = (e) => {
+
+	if (e.target.classList.contains("buy-btn-overlay")) {;
+
+		e.preventDefault();
+
+	}
+
+}
+
+
